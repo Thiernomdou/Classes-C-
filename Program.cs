@@ -6,38 +6,43 @@
         /*Une structure est utilisée pour réprésenter un type qui 
         sera modifier constement*/
         
-        /*une structure qui représente un disque dur, là par exple on
-        aura pas besoin de changer la marque ou la capacité du disque dur*/
-        public struct Disk
+        /*Une classe */
+
+        public class Stock
         {
             //attributs
-            public string Marque;
-            public int Capacite; //en Go
+            private int Capacite;
 
-            //constructeur qui permet de créer une instance de l'objet
-            public Disk(string marque, int capacite)
+            //constructeur par défaut
+            public Stock()
             {
-                //doit obligatoirement initialiser tous les champs de l'objet
-                Marque = marque;
+                Capacite = 100;
+            }
+
+            //Constructeur avec paramètres
+            public Stock(int capacite)
+            {
                 Capacite = capacite;
             }
 
-            /*La surcharge d'une méthode déjà existante dans C#
-            qui est appelé implicitement dès que j'essaye d'appeler un objet*/
-            public override string ToString() => $"Disque de marque {Marque} d'une capacité de {Capacite}Go";
-            
+            /*rédefinition de la méthode pour afficher les informations*
+            elle est automatiquement lancée quand on affiche un objet*/
+            public override string ToString() => $"Capacité du stock : {Capacite}";
         }
+        
 
         class Program
         {
             static void Main(string[] args)
             {
-                /*déclaration du disque dur en créant une nouvelle instance
+                /*déclaration de la classe en créant une nouvelle instance
                 avec le constructeur pour affecter des valeurs*/
-                Disk d = new Disk("Toshiba", 1);
+                Stock stock_disks = new Stock();
+                Stock stock_mouses = new Stock(25);
                 // Disk d2 = new Disk("Western Digital", 5000);
 
-                Console.WriteLine(d);
+                Console.WriteLine(stock_disks);
+                Console.WriteLine(stock_mouses);
                 // Console.WriteLine(d.Capacite);
 
                 // Console.WriteLine(d2.Marque);
